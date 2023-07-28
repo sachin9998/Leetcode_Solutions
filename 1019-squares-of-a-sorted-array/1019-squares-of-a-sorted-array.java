@@ -5,18 +5,21 @@ class Solution {
 
         int start = 0;
         int end = nums.length - 1;
-        
-        for(int i = nums.length - 1; i >= 0; i--) {
+        int index = end;
 
+        while(start <= end) {
+            
             if(Math.abs(nums[start]) < Math.abs(nums[end])) {
-                ans[i] = Math.abs(nums[end]) * Math.abs(nums[end]);
+                ans[index--] = Math.abs(nums[end]) * Math.abs(nums[end]);
                 end--;
             } else{
-                ans[i] = Math.abs(nums[start]) * Math.abs(nums[start]);
+                ans[index--] = Math.abs(nums[start]) * Math.abs(nums[start]);
                 start++;
             }
-            
+
         }
+        
+        
 
         return ans;
     }
