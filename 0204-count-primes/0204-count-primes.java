@@ -8,7 +8,6 @@ class Solution {
         
         // Creating array of boolean assumming all numbers are prime
         boolean prime[] = new boolean[n];
-        
         Arrays.fill(prime , true);  
 
         // Marking 0 & 1 as false;
