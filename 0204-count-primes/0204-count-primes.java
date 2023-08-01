@@ -6,17 +6,20 @@ class Solution {
             return 0;
         }
         
-        boolean prime[] = new boolean[n+1];
+        // Creating array of boolean assumming all numbers are prime
+        boolean prime[] = new boolean[n];
         
         for(int i = 0; i < prime.length; i++) {
             prime[i] = true;
         }
         
+        // Marking 0 & 1 as false;
         prime[0] = false;
         prime[1] = false;
 
         int count = 0;
 
+        // Checking if prime[i] is true (means prime) then marking every number from this prime number as false(means they are not prime).
         for(int i = 2; i < n; i++) {
             if(prime[i]) {
                 count++;
