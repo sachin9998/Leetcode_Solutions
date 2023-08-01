@@ -8,8 +8,10 @@
  */
 class Solution {
     public void deleteNode(ListNode node) {
-        // Assigning sig
+        // Assigning value of next node to given node
         node.val = node.next.val;
+
+        // Storing reference of next of next node at given.next
         node.next = node.next.next;        
     }
 }
