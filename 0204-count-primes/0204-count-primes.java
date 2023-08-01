@@ -9,10 +9,8 @@ class Solution {
         // Creating array of boolean assumming all numbers are prime
         boolean prime[] = new boolean[n];
         
-        for(int i = 0; i < prime.length; i++) {
-            prime[i] = true;
-        }
-        
+        Arrays.fill(prime , true);  
+
         // Marking 0 & 1 as false;
         prime[0] = false;
         prime[1] = false;
