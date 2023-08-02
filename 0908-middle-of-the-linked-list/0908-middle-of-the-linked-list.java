@@ -13,35 +13,17 @@ class Solution {
         
         
         // Calculating length of Node
-        int count = 0;
-        ListNode current = head;
+        // int count = 0;
+        ListNode fast = head;
+        ListNode slow = head;
 
-        
-
-        while(current != null) {
-            count++;
-            current = current.next;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
         // Edge Cases
-        if(count == 1) {
-            return head;
-        }
 
-        // Finding Middle Index
-        int mid;
-        if(count / 2 == 0) {
-            mid = (count / 2) + 1;
-        } else {
-            mid = count / 2;
-        }
-
-        // Traversing till middle Node
-        ListNode middle = head;
-        for(int i = 0; i < mid; i++) {
-            middle = middle.next;
-        }
-
-        return middle;
+        return slow;
     }
 }
