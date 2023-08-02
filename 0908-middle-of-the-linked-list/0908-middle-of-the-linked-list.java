@@ -11,9 +11,7 @@
 class Solution {
     public ListNode middleNode(ListNode head) {
         
-        
-        // Calculating length of Node
-        // int count = 0;
+        // Creating fast and slow pointers
         ListNode fast = head;
         ListNode slow = head;
 
@@ -21,9 +19,7 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-
-        // Edge Cases
-
+        
         return slow;
     }
 }
