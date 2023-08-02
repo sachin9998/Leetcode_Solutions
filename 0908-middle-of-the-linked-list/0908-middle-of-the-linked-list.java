@@ -28,6 +28,7 @@ class Solution {
             return head;
         }
 
+        // Finding Middle Index
         int mid;
         if(count / 2 == 0) {
             mid = (count / 2) + 1;
@@ -35,6 +36,7 @@ class Solution {
             mid = count / 2;
         }
 
+        // Traversing till middle Node
         ListNode middle = head;
         for(int i = 0; i < mid; i++) {
             middle = middle.next;
