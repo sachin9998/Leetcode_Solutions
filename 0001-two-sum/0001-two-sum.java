@@ -1,14 +1,24 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        Map < Integer, Integer> numMap = new HashMap <>();
 
-        for(int i = 0; i < nums.length - 1; i++) {
-            for(int j = i + 1; j < nums.length; j++) {
-                if(nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
+        // Building the Hash Table
+        for(int i = 0; i < n; i++) {
+            numMap.put(nums[i], i);
+        }
+
+        // Finding the complement
+        for(int i = 0; i < n; i++) {
+
+            int diff = target - nums[i];
+
+            if(numMap.containsKey(diff) && numMap.get(diff) != i) {
+                return new int[]{i, numMap.get(diff)};
             }
+
         }
         
-        return new int[]{};
+        return new int[]{}; // No Solution Found
     }
 }
