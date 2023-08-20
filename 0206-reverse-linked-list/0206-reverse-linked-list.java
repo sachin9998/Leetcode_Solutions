@@ -16,13 +16,12 @@ class Solution {
 
         while(curr != null) {
 
-            next = curr.next; // Store next node in next
-            curr.next = prev; // Set curr.next as prev 
-            prev = curr; // Set prev as curr
-            curr = next; // Increment curr to next
-           
-        }
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
 
+        }
 
         return prev;
     }
