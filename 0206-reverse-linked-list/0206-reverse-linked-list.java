@@ -15,10 +15,12 @@ class Solution {
         ListNode next = null;
 
         while(curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+
+            next = curr.next; // Store next node in next
+            curr.next = prev; // Set curr.next as prev 
+            prev = curr; // Set prev as curr
+            curr = next; // Increment curr to next
+           
         }
 
 
