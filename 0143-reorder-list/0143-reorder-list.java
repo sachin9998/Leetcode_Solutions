@@ -9,7 +9,6 @@
  * }
  */
 class Solution {
-
     public static ListNode reverse(ListNode head) {
 
         ListNode prev = null;
@@ -24,52 +23,48 @@ class Solution {
         }
 
         return prev;
-
     }
 
     public void reorderList(ListNode head) {
 
-        // Base Case
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return;
         }
 
-        // Finding Middle Node
-        ListNode slow = head;
         ListNode fast = head;
+        ListNode slow = head;
 
         while(fast != null && fast.next != null) {
-            fast = fast.next.next;
             slow = slow.next;
-        } 
-
-        // Reversing part after middle
-        ListNode newNode = reverse(slow.next);
-        slow.next = null;
-        
-        ListNode temp1 = head;
-        ListNode temp2 = newNode;
-
-        ListNode dummy = new ListNode(-100);
-        ListNode p3 = dummy;
-
-        while(temp1 != null || temp2 != null) {
-            if(temp1 != null) {
-                p3.next = temp1;
-                p3 = p3.next;
-                temp1 = temp1.next;
-            }
-
-            if(temp2 != null) {
-                p3.next = temp2;
-                p3 = p3.next;
-                temp2 = temp2.next;
-            }
-
-
+            fast = fast.next.next;
         }
 
-        head = dummy.next;
-         // https://leetcode.com/problems/reorder-list/solutions/3148599/easily-expalined-step-by-step-code-100-beats-and-0ms-runtime/
+        
+        ListNode temp2 = reverse(slow.next);
+        slow.next = null;   
+
+        ListNode temp3 = new ListNode(-100); 
+
+        ListNode p1 = head;
+        ListNode p2 = temp2;
+        ListNode p3 = temp3;
+
+        while(p1 != null || p2 != null) {
+
+            if(p1 != null) {
+                p3.next = p1;
+                p3 = p3.next;
+                p1 = p1.next;
+            }
+
+            if(p2 != null) {
+                p3.next = p2;
+                p3 = p3.next;
+                p2 = p2.next;
+            }
+            
+        }
+
+        head = temp3.next;
     }
 }
