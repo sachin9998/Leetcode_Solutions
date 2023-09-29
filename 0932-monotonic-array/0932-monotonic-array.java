@@ -1,32 +1,23 @@
 class Solution {
-    public boolean isMonotonic(int[] nums) { 
-        
-        boolean ans = isAscending(nums) || isDescending(nums);
-        return ans;
-    }
+    public boolean isMonotonic(int[] nums) {
+        boolean isIncreasing = true;  // Indicates if the array is increasing
+        boolean isDecreasing = true;  // Indicates if the array is decreasing
 
-    public boolean isAscending(int arr[]) {
-        boolean ans = true;
+        // Check if the array is either increasing or non-increasing
+        for (int i = 1; i < nums.length; i++) {
+            // Check increasing condition.
+            if (nums[i] < nums[i - 1])
+                isIncreasing = false;
 
-        for(int i = 0; i < arr.length - 1; i++) {
-            if(arr[i] > arr[i + 1]) {
-                return false;
-            }
+            // Check decreasing condition.
+            else if (nums[i] > nums[i - 1])
+                isDecreasing = false;
+
+            // If it is neither increasing nor decreasing then don't continue the loop
+            if (!isIncreasing && !isDecreasing)
+                break;
         }
 
-        return ans;
+        return isIncreasing || isDecreasing;  // Return true if either condition is met
     }
-
-    public boolean isDescending(int arr[]) {
-        boolean ans = true;
-
-        for(int i = 0; i < arr.length - 1; i++) {
-            if(arr[i] < arr[i + 1]) {
-                return false;
-            }
-        }
-
-        return ans;
-    }
-
 }
