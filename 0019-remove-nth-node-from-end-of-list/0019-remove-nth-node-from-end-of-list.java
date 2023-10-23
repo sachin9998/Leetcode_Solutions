@@ -15,14 +15,17 @@ class Solution {
         ListNode fast = head;
 
         // 1 2 3 4 5 -> Fast -> 2
+        // Moving fast till n
         for(int i = 0; i < n; i++) {
             fast = fast.next;
         }
 
+        // check 
         if(fast == null) {
             return head.next;
         }
 
+        // Moving fast and slow
         while(fast.next != null) {
             fast = fast.next;
             slow = slow.next;
