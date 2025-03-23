@@ -1,19 +1,23 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()) {
-            return false;
+        HashMap<Character, Integer> count = new HashMap<>();
+
+        for (char x : s.toCharArray()) {
+            count.put(x, count.getOrDefault(x, 0) + 1);
         }
 
-        // Convert Strings into array
-        char[] s1 = s.toCharArray();
-        char[] s2 = t.toCharArray();
+        // Decreasing frquency 
+        for(char x: t.toCharArray()) {
+            count.put(x, count.getOrDefault(x, 0) - 1);
+        }
 
-        Arrays.sort(s1);
-        Arrays.sort(s2);
-
-        System.out.println(s1);
-        System.out.println(s2);
-
-        return Arrays.equals(s1, s2); 
+        // Check if any char has non
+        for(int val : count.values()) {
+            if(val != 0) {
+                return false;
+            }
+        }
+        
+        return true;
     }
 }
