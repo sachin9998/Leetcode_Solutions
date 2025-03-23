@@ -2,14 +2,18 @@ class Solution {
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
 
-        // Brute Force approach
-        for(int i = 0; i < n - 1; i++) {
-            for(int j = i + 1; j < n; j++) {
-                int sum = nums[i] + nums[j];
+        Map<Integer, Integer> hm = new HashMap<>();
 
-                if(sum == target) {
-                    return new int []{i, j};
-                }
+        // Brute Force approach
+        for(int i = 0; i < n; i++) {
+            hm.put(nums[i], i);
+        }
+
+        for(int i = 0; i < n; i++) {
+            int diff = target - nums[i];
+
+            if(hm.containsKey(diff) && hm.get(diff) != i) {
+                return new int[]{i, hm.get(diff)};
             }
         }
 
