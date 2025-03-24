@@ -21,7 +21,13 @@ class Solution {
 
                     if(sum == target) {        
                         // Add the quadruplet in result and continue     
-                        result.add(Arrays.asList(nums[i], nums[j], nums[start], nums[end]));
+                        List<Integer> quad = new ArrayList<>();
+                        quad.add(nums[i]);
+                        quad.add(nums[start]);
+                        quad.add(nums[j]);
+                        quad.add(nums[end]);
+
+                        result.add(quad);
                         start++;
                         end--;
                     } 
