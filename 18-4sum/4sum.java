@@ -17,7 +17,7 @@ class Solution {
 
                 while(start < end) {
                     
-                    long sum = (long) nums[i] + nums[j] + nums[start] + nums[end];
+                    long sum =  (long) nums[i] + nums[j] + nums[start] + nums[end];
 
                     if(sum == target) {        
                         // Add the quadruplet in result and continue     
