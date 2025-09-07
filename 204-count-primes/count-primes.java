@@ -1,16 +1,32 @@
-public class Solution {
+class Solution {
     public int countPrimes(int n) {
-        boolean[] notPrime = new boolean[n];
-        int count = 0;
-        for (int i = 2; i < n; i++) {
-            if (notPrime[i] == false) {
-                count++;
-                for (int j = 2; i*j < n; j++) {
-                    notPrime[i*j] = true;
+
+        if(n == 0 || n == 1) {
+            return 0;
+        }
+
+        boolean isPrime[] = new boolean[n];
+        Arrays.fill(isPrime, true);
+
+        // 0 and 1 are not prime
+        isPrime[0] = false;
+        isPrime[1] = false;
+
+        for(int i = 2; i * i <= n; i++) {
+            if(isPrime[i]) {
+                for(int j = i * 2; j < n; j = j + i) {
+                    isPrime[j] = false;
                 }
             }
         }
-        
+
+        int count = 0;
+        for(int i = 2; i < n; i++) {
+            if(isPrime[i]) {
+                count++;
+            }
+        }
+
         return count;
     }
 }
