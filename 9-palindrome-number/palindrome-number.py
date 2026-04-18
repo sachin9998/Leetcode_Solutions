@@ -14,7 +14,6 @@ class Solution(object):
         while x > 0:
             last = x % 10
             num = last + num * 10
-            print("checking num", num)
             x = x // 10
 
         return temp == num
